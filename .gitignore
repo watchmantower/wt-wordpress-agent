@@ -10,3 +10,6 @@
 /README.md export-ignore
 /.DS_Store export-ignore
 .DS_Store
+/dist 
+/dist/*
+/dist export-ignore
