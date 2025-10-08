@@ -1,9 +1,7 @@
 name: Release WP Plugin
 
 on:
-  push:
-    tags:
-      - "v*.*.*"
+  workflow_dispatch
 
 jobs:
   build-and-release:
