@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) exit;
 define('WTHB_PLUGIN_FILE', __FILE__);
 define('WTHB_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WTHB_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('WTHB_VERSION', '1.0.0');
+define('WTHB_VERSION', '1.0.1');
 
 require_once WTHB_PLUGIN_DIR . 'includes/Options.php';
 require_once WTHB_PLUGIN_DIR . 'includes/Admin.php';
