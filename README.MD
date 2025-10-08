@@ -30,7 +30,6 @@ Sends periodic **heartbeat** and **site health** data (WP/PHP versions, theme, p
 
 ## ⚙️ Settings
 - **Integration Token (JWT)** – required
-- **Endpoint** – defaults to `https://metric.watchmantower.com/wp/heartbeat`
 - **Interval** – default 10 min (server can suggest a different interval)
 - **Pause** – stops sending while on
 
@@ -47,8 +46,6 @@ Advanced:
 - **health**: `db{ok}`, `rest{ok}`, `cron{overdue,nextDueInSec}`, `updates{core,plugins,themes}`
 - **security**: `xmlrpc{enabled}`, `registration{enabled}`
 - **inventory**: `activePlugins{count,sample[]}`
-
-WT sunucusu cevapta `desiredIntervalSec` ve `pause` dönebilir; eklenti bunları uygular.
 
 ---
 
