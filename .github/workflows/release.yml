@@ -16,11 +16,11 @@ jobs:
       - name: Create dist folder and zip
         run: |
           mkdir -p dist
-          git archive --format=zip --output=dist/wp-agent.zip HEAD
+          git archive --format=zip --output=dist/wt-wp-agent.zip HEAD
 
       - name: Upload ZIP to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/wp-agent.zip
+          files: dist/wt-wp-agent.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
