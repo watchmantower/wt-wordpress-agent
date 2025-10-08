@@ -13,14 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create dist folder and zip
+      - name: Create plugin ZIP
         run: |
           mkdir -p dist
-          git archive --format=zip --output=dist/wt-wp-agent.zip HEAD
-
-      - name: Upload ZIP to Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: dist/wt-wp-agent.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          cd plugin
+          zip -r ../dist/wt-wp-agent.zip .
