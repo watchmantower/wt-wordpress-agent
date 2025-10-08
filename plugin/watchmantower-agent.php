@@ -3,7 +3,7 @@
  * Plugin Name: Watchman Tower Heartbeat
  * Plugin URI: https://watchmantower.com
  * Description: Sends lightweight WordPress heartbeat metrics to Watchman Tower on a fixed schedule.
- * Version: 0.0.1
+ * Version: 1.0.0
  * Author: Watchman Tower
  * Author URI: https://watchmantower.com
  */
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) exit;
 define('WTHB_PLUGIN_FILE', __FILE__);
 define('WTHB_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WTHB_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('WTHB_VERSION', '0.1.1');
+define('WTHB_VERSION', '1.0.0');
 
 require_once WTHB_PLUGIN_DIR . 'includes/Options.php';
 require_once WTHB_PLUGIN_DIR . 'includes/Admin.php';
