@@ -15,6 +15,7 @@ jobs:
 
       - name: Create plugin ZIP
         run: |
-          mkdir -p dist
-          cd plugin
-          zip -r ../dist/wt-wp-agent.zip .
+          mkdir -p dist/wt-wp-agent
+          cp -r plugin/* dist/wt-wp-agent/
+          cd dist
+          zip -r wt-wp-agent.zip wt-wp-agent
