@@ -38,14 +38,14 @@ jobs:
         run: |
           if [ -f composer.json ]; then composer install --no-dev --optimize-autoloader; fi
 
-      - name: Create ZIP via git archive
+      - name: Create ZIP
         run: |
           mkdir -p dist
-          git archive --format=zip --output=dist/watchman-tower.zip HEAD
+          git archive --format=zip --output=dist/wt-wp-agent.zip HEAD
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/watchman-tower.zip
+          files: dist/wt-wp-agent.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

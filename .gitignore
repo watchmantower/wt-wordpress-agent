@@ -8,3 +8,5 @@
 /composer.json export-ignore
 /composer.lock export-ignore
 /README.md export-ignore
+/.DS_Store export-ignore
+.DS_Store

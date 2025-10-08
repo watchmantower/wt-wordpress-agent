@@ -3,7 +3,7 @@
  * Plugin Name: Watchman Tower Heartbeat
  * Plugin URI: https://watchmantower.com
  * Description: Sends lightweight WordPress heartbeat metrics to Watchman Tower on a fixed schedule.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Watchman Tower
  * Author URI: https://watchmantower.com
  */
