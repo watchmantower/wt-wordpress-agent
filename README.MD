@@ -62,4 +62,8 @@ Advanced:
 
 ---
 
-## 🛠 Development
+## 🔗 Links
+- 🌐 [Watchman Tower Website](https://www.watchmantower.com)
+- 🧩 [Dashboard / App](https://app.watchmantower.com)
+- 📨 [Support](mailto:support@watchmantower.com)
+- 🧠 [GitHub Repository](https://github.com/watchmantower/wt-wordpress-agent)
