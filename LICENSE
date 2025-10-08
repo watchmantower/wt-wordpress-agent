@@ -1,0 +1,32 @@
+---
+
+### `plugin/watchmantower-agent.php`
+```php
+<?php
+/**
+ * Plugin Name: Watchman Tower WordPress Agent
+ * Description: Sends periodic heartbeat & site health metrics to Watchman Tower.
+ * Version: 0.1.0
+ * Author: Watchman Tower
+ * Requires at least: 5.8
+ * Requires PHP: 7.4
+ */
+
+if (!defined('ABSPATH')) exit;
+
+define('WTHB_VERSION', '0.1.0');
+define('WTHB_DIR', __DIR__);
+define('WTHB_INC', __DIR__ . '/includes');
+
+require_once WTHB_INC . '/Options.php';
+require_once WTHB_INC . '/Admin.php';
+require_once WTHB_INC . '/Heartbeat.php';
+require_once WTHB_INC . '/Scheduler.php';
+
+add_action('plugins_loaded', function () {
+  // Namespaced classes under \WTHB\
+  if (class_exists('\WTHB\Options'))   \WTHB\Options::init();
+  if (class_exists('\WTHB\Admin'))     \WTHB\Admin::init();
+  if (class_exists('\WTHB\Heartbeat')) \WTHB\Heartbeat::init();
+  if (class_exists('\WTHB\Scheduler')) \WTHB\Scheduler::init();
+});

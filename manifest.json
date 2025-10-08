@@ -1,0 +1,10 @@
+{
+  "name": "Watchman Tower WordPress Agent",
+  "slug": "watchmantower-agent",
+  "version": "0.1.0",
+  "download_url": "https://github.com/watchmantower/wt-wordpress-agent/releases/download/v0.1.0/watchmantower-agent-0.1.0.zip",
+  "requires": "5.8",
+  "tested": "6.8",
+  "requires_php": "7.4",
+  "changelog": ["Initial release"]
+}

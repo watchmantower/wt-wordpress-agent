@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build": "node ./scripts/build.js || echo 'skip'",
+    "pack:zip": "rm -rf dist && mkdir -p dist && git archive --format=zip --output=dist/watchman-tower.zip HEAD"
+  }
+}

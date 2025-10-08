@@ -1,0 +1,51 @@
+name: Release WP Plugin
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Node deps (optional)
+        run: |
+          if [ -f package.json ]; then npm ci; fi
+
+      - name: Build (optional)
+        run: |
+          if [ -f package.json ]; then npm run build || true; fi
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          tools: composer
+
+      - name: Install Composer deps (prod)
+        run: |
+          if [ -f composer.json ]; then composer install --no-dev --optimize-autoloader; fi
+
+      - name: Create ZIP via git archive
+        run: |
+          mkdir -p dist
+          git archive --format=zip --output=dist/watchman-tower.zip HEAD
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/watchman-tower.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
