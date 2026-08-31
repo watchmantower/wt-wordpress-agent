@@ -1,0 +1,525 @@
+/**
+ * Admin styles for Watchman Tower plugin.
+ */
+
+.wthb-settings {
+    max-width: 1200px;
+}
+
+/* Cards row layout */
+.wthb-cards-row {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.wthb-card-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.wthb-card-sidebar {
+    flex: 0 0 300px;
+    align-self: flex-start;
+}
+
+@media (max-width: 960px) {
+    .wthb-cards-row {
+        flex-direction: column;
+    }
+
+    .wthb-card-sidebar {
+        flex: 1;
+    }
+}
+
+.wthb-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 30px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.wthb-card h2 {
+    margin-top: 0;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.wthb-card h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.wthb-card hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #dcdcde;
+}
+
+/* Status badges */
+.wthb-status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.wthb-status-connected {
+    background: #00a32a;
+    color: #fff;
+}
+
+.wthb-status-disconnected {
+    background: #dba617;
+    color: #fff;
+}
+
+/* Form groups */
+.wthb-form-group {
+    margin-bottom: 20px;
+}
+
+.wthb-form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.wthb-form-group input[type="text"],
+.wthb-form-group input[type="email"],
+.wthb-form-group input[type="url"],
+.wthb-form-group input[type="number"] {
+    width: 100%;
+    max-width: 500px;
+}
+
+.wthb-form-group .description {
+    margin-top: 5px;
+    color: #646970;
+    font-size: 13px;
+}
+
+/* Actions */
+.wthb-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Info sections */
+.wthb-info {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.wthb-info h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.wthb-info ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.wthb-info ul li {
+    margin-bottom: 8px;
+}
+
+/* Info grid */
+.wthb-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+@media (min-width: 640px) {
+    .wthb-info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.wthb-info-item {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.wthb-info-item label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #646970;
+    margin-bottom: 8px;
+}
+
+.wthb-info-item code {
+    display: block;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 3px;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+.wthb-info-item span {
+    display: block;
+    font-size: 14px;
+    color: #1d2327;
+}
+
+.wthb-info-item small {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #646970;
+}
+
+.wthb-info-item.wthb-error {
+    border-color: #d63638;
+    background: #fcf0f1;
+}
+
+.wthb-info-item.wthb-error label {
+    color: #b32d2e;
+}
+
+/* Token display */
+.wthb-token-box {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.wthb-token-box code {
+    display: block;
+    font-size: 14px;
+    word-break: break-all;
+    color: #1d2327;
+}
+
+/* Status messages */
+#wthb-status {
+    margin-bottom: 20px;
+}
+
+#wthb-status .notice {
+    margin: 0 0 15px 0;
+}
+
+/* Text alignment */
+.wthb-text-center {
+    text-align: center;
+}
+
+/* Loading spinner */
+.wthb-spinner {
+    width: 50px;
+    height: 50px;
+    margin: 20px auto;
+    border: 4px solid #f3f4f5;
+    border-top: 4px solid #2271b1;
+    border-radius: 50%;
+    animation: wthb-spin 1s linear infinite;
+}
+
+@keyframes wthb-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Button loading state */
+.button.wthb-loading {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .wthb-card {
+        padding: 20px;
+    }
+
+    .wthb-actions {
+        flex-direction: column;
+    }
+
+    .wthb-actions .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Site Status Widget */
+.wthb-status-widget {
+    margin: 20px 0;
+}
+
+.wthb-status-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 2px solid;
+}
+
+.wthb-status-icon {
+    font-size: 24px;
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+.wthb-status-content {
+    flex: 1;
+}
+
+.wthb-status-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.8;
+    margin-bottom: 2px;
+}
+
+.wthb-status-value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.wthb-status-up {
+    background: #e7f7ed;
+    border-color: #00a32a;
+    color: #00a32a;
+}
+
+.wthb-status-down {
+    background: #fcf0f1;
+    border-color: #d63638;
+    color: #d63638;
+}
+
+.wthb-status-paused {
+    background: #fef8e7;
+    border-color: #dba617;
+    color: #dba617;
+}
+
+.wthb-status-unknown {
+    background: #f6f7f7;
+    border-color: #8c8f94;
+    color: #50575e;
+}
+
+.wthb-status-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.wthb-metric-item {
+    background: #f6f7f7;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.wthb-metric-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #646970;
+    margin-bottom: 5px;
+}
+
+.wthb-metric-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1d2327;
+}
+
+.wthb-metric-up .wthb-metric-value {
+    color: #00a32a;
+}
+
+.wthb-metric-down .wthb-metric-value {
+    color: #d63638;
+}
+
+.wthb-loading-status {
+    text-align: center;
+    padding: 20px;
+    color: #646970;
+}
+
+.wthb-status-error {
+    color: #d63638;
+    text-align: center;
+    padding: 20px;
+}
+
+.wthb-detail-panels {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.wthb-detail-panel {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 14px;
+}
+
+.wthb-detail-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #1d2327;
+    margin-bottom: 10px;
+}
+
+.wthb-detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 7px 0;
+    border-top: 1px solid #e0e2e5;
+}
+
+.wthb-detail-row:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.wthb-detail-row:last-of-type {
+    padding-bottom: 0;
+}
+
+.wthb-detail-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #646970;
+}
+
+.wthb-detail-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d2327;
+    text-align: right;
+    word-break: break-word;
+}
+
+.wthb-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    border: 1px solid transparent;
+}
+
+.wthb-badge-success {
+    background: #e7f7ed;
+    border-color: #00a32a;
+    color: #056b1f;
+}
+
+.wthb-badge-warning {
+    background: #fef8e7;
+    border-color: #dba617;
+    color: #8a6508;
+}
+
+.wthb-badge-danger {
+    background: #fcf0f1;
+    border-color: #d63638;
+    color: #b32d2e;
+}
+
+.wthb-badge-neutral {
+    background: #f6f7f7;
+    border-color: #c3c4c7;
+    color: #50575e;
+}
+
+/* Confirm Dialog */
+.wthb-confirm-dialog {
+    padding: 5px 0;
+}
+
+.wthb-confirm-dialog h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.wthb-confirm-dialog p {
+    margin: 10px 0;
+    color: #50575e;
+    line-height: 1.6;
+}
+
+.wthb-confirm-dialog strong {
+    color: #1d2327;
+}
+
+.wthb-confirm-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #dcdcde;
+}
+
+.wthb-confirm-actions .button {
+    flex: 1;
+    justify-content: center;
+}
+
+/* Help Link */
+.wthb-help-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #2271b1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.wthb-help-link:hover {
+    color: #135e96;
+    text-decoration: none;
+}
+
+.wthb-help-link .dashicons {
+    color: inherit;
+}

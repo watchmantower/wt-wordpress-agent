@@ -1,69 +1,86 @@
-# Watchman Tower WordPress Agent
+# Watchman Tower — WordPress Plugin
 
-Lightweight WordPress agent plugin for **Watchman Tower**.  
-Sends periodic **heartbeat** and **site health** data (WP/PHP versions, theme, plugins, DB/REST/cron checks, security bits) to your Watchman Tower project.
+Official WordPress plugin for **[Watchman Tower](https://www.watchmantower.com)** — centralized WordPress monitoring for agencies and multi-site owners. Track uptime, performance, SSL, domain expiry, and WordPress health signals across all your client sites from a single dashboard.
 
-> Repo: `wt-wordpress-agent` · License: MIT
+> Plugin slug: `watchman-tower` · Current version: **2.1.2** · License: GPLv2 or later
+
+---
+
+## 📦 Installation
+
+The recommended way to install is from the WordPress.org plugin directory:
+
+- **[Watchman Tower on WordPress.org](https://wordpress.org/plugins/watchman-tower/)**
+
+Or manually:
+
+1. Download the latest release ZIP.
+2. WordPress admin → **Plugins → Add New → Upload Plugin** → upload and **Activate**.
+3. Go to **Settings → Watchman Tower**.
+4. Either **create a new account** directly from the plugin (email only, password optional), or **paste an integration token** from an existing Watchman Tower account.
+5. Heartbeat and performance metrics begin automatically.
+
+You can manage up to **10 monitored sites for free**.
 
 ---
 
 ## ✨ Features
-- Heartbeat with site health summary (DB, WP-REST, cron overdue, updates count)
-- Theme & limited active plugins inventory (sample)
-- XML-RPC / registration flags
-- Configurable interval (+ server-side override)
-- Pause / Send now
-- Works without front-end visitors (scheduler, no admin-page trigger)
+
+**Core monitoring**
+- 24/7 uptime monitoring with response time tracking
+- Latency breakdown (DNS, TLS, TTFB)
+- SSL certificate and domain expiry alerts
+- Multi-region probe checks
+
+**WordPress-specific monitoring**
+- Core / plugin / theme update visibility
+- PHP version and active plugin list reporting
+- Cron health checks
+- Security posture visibility (XML-RPC, open registration)
+
+**Integration**
+- Account creation directly from plugin settings
+- Secure token-based communication (HTTPS + Bearer)
+- Lightweight, cache-compatible, CDN-safe heartbeat system
+- Manual "Send Heartbeat Now" action and one-click unlink
 
 ---
 
-## 🚀 Install
-1. **Download** the ZIP from GitHub Releases (or your manifest link).
-2. WordPress admin → **Plugins → Add New → Upload Plugin** → upload the ZIP and **Activate**.
-3. Go to **Settings → Watchman Tower**.
-4. Paste the **Integration Token (JWT)** you got from Watchman Tower **Install** flow.
-5. Click **Save** then **Send now** to test.
+## 🗂 Repository layout
 
-> Tip: The token is one-time/short-lived for setup. You can generate a fresh one anytime from WT UI.
+```
+plugin/     → Plugin source (mirrors WordPress.org SVN trunk)
+```
 
----
+The `plugin/` directory is what ships to users. Releases are published through the WordPress.org SVN repository (`https://plugins.svn.wordpress.org/watchman-tower`); this GitHub repository is the source of truth for development.
 
-## ⚙️ Settings
-- **Integration Token (JWT)** – required
-- **Interval** – default 10 min (server can suggest a different interval)
-- **Pause** – stops sending while on
+### Release flow
 
-Advanced:
-- **Instance ID** – auto-generated UUID (used to identify this WP instance)
-- **Last success / Last error** – quick diagnostics
+1. Develop and bump the version in `plugin/watchman-tower.php` and `plugin/readme.txt` (header + `Stable tag` + changelog).
+2. Commit and push here.
+3. Copy `plugin/` contents into the SVN `trunk/`, commit, then tag the release:
+   `svn copy .../trunk .../tags/<version> -m "Release version <version>"`
 
 ---
 
-## 📡 What is sent (payload)
-- **identity**: `instanceId`, `pluginVersion`, `sentAt`
-- **site**: `homeUrl`, `siteUrl`, `multisite`
-- **wordpress**: `wpVersion`, `phpVersion`, `theme{name,version}`, `comments{enabled}`
-- **health**: `db{ok}`, `rest{ok}`, `cron{overdue,nextDueInSec}`, `updates{core,plugins,themes}`
-- **security**: `xmlrpc{enabled}`, `registration{enabled}`
-- **inventory**: `activePlugins{count,sample[]}`
+## 📡 External services
 
----
+The plugin communicates with the Watchman Tower platform:
 
-## 🧪 Troubleshooting
-- **No heartbeat / “Waiting…”**  
-  - Check token and endpoint; try **Send now**.
-- **REST check fails**  
-  - Some security plugins block `/wp-json/`. It’s fine; you’ll just see `rest.ok=false`.
-- **Cron overdue**  
-  - If host blocks WP-Cron, set a real cron:  
-    `*/10 * * * * php /path/to/wp/wp-cron.php > /dev/null 2>&1`
-- **XML-RPC disabled**  
-  - Many hosts/plugins disable it intentionally (expected).
+| Endpoint | Purpose |
+|---|---|
+| `api.watchmantower.com/api/auth/wp/create-account` | Account creation from WordPress |
+| `metric.watchmantower.com/wp/heartbeat` | Periodic heartbeat / performance signals |
+| `metric.watchmantower.com/wp/status` | Connection status |
+| `metric.watchmantower.com/wp/unlink` | Disconnecting the site |
+
+See [Privacy Policy](https://www.watchmantower.com/privacy-policy) and [Terms of Service](https://www.watchmantower.com/terms-of-service).
 
 ---
 
 ## 🔗 Links
+
 - 🌐 [Watchman Tower Website](https://www.watchmantower.com)
 - 🧩 [Dashboard / App](https://app.watchmantower.com)
+- 📚 [Documentation](https://docs.watchmantower.com/wordpress-agent/installation)
 - 📨 [Support](mailto:support@watchmantower.com)
-- 🧠 [GitHub Repository](https://github.com/watchmantower/wt-wordpress-agent)

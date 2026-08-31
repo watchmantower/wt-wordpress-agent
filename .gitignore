@@ -1,15 +1,3 @@
-/.gitignore export-ignore
-/.github export-ignore
-/tests export-ignore
-/.vscode export-ignore
-/.idea export-ignore
-/package.json export-ignore
-/package-lock.json export-ignore
-/composer.json export-ignore
-/composer.lock export-ignore
-/README.md export-ignore
-/.DS_Store export-ignore
 .DS_Store
-/dist 
-/dist/*
-/dist export-ignore
+/dist/
+node_modules/

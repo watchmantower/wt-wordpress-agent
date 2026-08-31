@@ -1,0 +1,327 @@
+# Copyright (C) 2025 Watchman Tower
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Watchman Tower 2.1.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/watchman-tower\n"
+"POT-Creation-Date: 2025-12-07 00:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: WP-CLI 2.9.0\n"
+
+#: watchman-tower.php:67
+#: admin/views/screen-connected.php:71
+msgid "Settings"
+msgstr ""
+
+#: watchman-tower.php:25
+#: admin/views/screen-connected.php:25
+#: admin/views/screen-connecting.php:14
+#: admin/views/screen-create.php:14
+#: admin/views/screen-disconnected.php:14
+#: admin/views/screen-entry.php:14
+#: admin/views/screen-existing.php:14
+#: admin/Admin.php:46
+#: admin/Admin.php:47
+msgid "Watchman Tower"
+msgstr ""
+
+#: admin/Admin.php:62
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: admin/SettingsController.php:63
+#, php-format
+msgid "View file not found: %s"
+msgstr ""
+
+#: admin/views/screen-connected.php:20
+msgid "ago"
+msgstr ""
+
+#: admin/views/screen-connected.php:30
+msgid "Connected"
+msgstr ""
+
+#: admin/views/screen-connected.php:33
+msgid "Site Monitoring Active"
+msgstr ""
+
+#: admin/views/screen-connected.php:34
+msgid "Your WordPress site is connected to Watchman Tower and sending heartbeat data."
+msgstr ""
+
+#: admin/views/screen-connected.php:40
+msgid "Instance ID"
+msgstr ""
+
+#: admin/views/screen-connected.php:46
+msgid "Site ID"
+msgstr ""
+
+#: admin/views/screen-connected.php:52
+msgid "Last Successful Heartbeat"
+msgstr ""
+
+#: admin/views/screen-connected.php:57
+msgid "No heartbeat sent yet"
+msgstr ""
+
+#: admin/views/screen-connected.php:63
+msgid "Last Error"
+msgstr ""
+
+#: admin/views/screen-connected.php:74
+msgid "Heartbeat Interval (seconds)"
+msgstr ""
+
+#: admin/views/screen-connected.php:84
+msgid "How often to send heartbeat data (60-3600 seconds)."
+msgstr ""
+
+#: admin/views/screen-connected.php:95
+msgid "Pause heartbeat monitoring"
+msgstr ""
+
+#: admin/views/screen-connected.php:101
+msgid "Save Settings"
+msgstr ""
+
+#: admin/views/screen-connected.php:105
+msgid "Send Heartbeat Now"
+msgstr ""
+
+#: admin/views/screen-connected.php:109
+msgid "Unlink Site"
+msgstr ""
+
+#: admin/views/screen-connected.php:116
+msgid "Quick Actions"
+msgstr ""
+
+#: admin/views/screen-connected.php:121
+msgid "Loading status..."
+msgstr ""
+
+#: admin/views/screen-connected.php:130
+msgid "View Dashboard"
+msgstr ""
+
+#: admin/views/screen-connecting.php:18
+msgid "Connecting..."
+msgstr ""
+
+#: admin/views/screen-connecting.php:19
+msgid "Please wait while we establish a connection to Watchman Tower."
+msgstr ""
+
+#: admin/views/screen-create.php:17
+msgid "Create New Account"
+msgstr ""
+
+#: admin/views/screen-create.php:18
+msgid "Sign up for Watchman Tower and start monitoring your WordPress site."
+msgstr ""
+
+#: admin/views/screen-create.php:23
+msgid "Email Address"
+msgstr ""
+
+#: admin/views/screen-create.php:29
+msgid "your@email.com"
+msgstr ""
+
+#: admin/views/screen-create.php:35
+msgid "Password (Optional)"
+msgstr ""
+
+#: admin/views/screen-create.php:40
+msgid "Leave empty to auto-generate"
+msgstr ""
+
+#: admin/views/screen-create.php:43
+msgid "If not provided, a password will be automatically generated and sent to your email."
+msgstr ""
+
+#: admin/views/screen-create.php:48
+msgid "Site Name"
+msgstr ""
+
+#: admin/views/screen-create.php:58
+msgid "Site URL"
+msgstr ""
+
+#: admin/views/screen-create.php:70
+msgid "Create Account"
+msgstr ""
+
+#: admin/views/screen-create.php:74
+#: admin/views/screen-existing.php:41
+msgid "Back"
+msgstr ""
+
+#: admin/views/screen-create.php:80
+msgid "Your Register Token"
+msgstr ""
+
+#: admin/views/screen-create.php:81
+msgid "Copy this token and save it somewhere safe. You will need it to connect other sites."
+msgstr ""
+
+#: admin/views/screen-create.php:86
+msgid "Continue to Dashboard"
+msgstr ""
+
+#: admin/views/screen-disconnected.php:18
+msgid "Disconnected"
+msgstr ""
+
+#: admin/views/screen-disconnected.php:21
+msgid "Site Not Connected"
+msgstr ""
+
+#: admin/views/screen-disconnected.php:22
+msgid "This site is not currently connected to Watchman Tower."
+msgstr ""
+
+#: admin/views/screen-disconnected.php:26
+msgid "Last Error:"
+msgstr ""
+
+#: admin/views/screen-disconnected.php:32
+msgid "Reconnect with Token"
+msgstr ""
+
+#: admin/views/screen-disconnected.php:36
+#: admin/views/screen-entry.php:26
+msgid "Create New Account"
+msgstr ""
+
+#: admin/views/screen-disconnected.php:40
+msgid "Back to Start"
+msgstr ""
+
+#: admin/views/screen-entry.php:17
+msgid "Connect Your WordPress Site"
+msgstr ""
+
+#: admin/views/screen-entry.php:18
+msgid "Get started with Watchman Tower monitoring in just a few steps."
+msgstr ""
+
+#: admin/views/screen-entry.php:22
+msgid "I Already Have an Account"
+msgstr ""
+
+#: admin/views/screen-entry.php:31
+msgid "Why Watchman Tower?"
+msgstr ""
+
+#: admin/views/screen-entry.php:33
+msgid "Monitor uptime and performance"
+msgstr ""
+
+#: admin/views/screen-entry.php:34
+msgid "Get instant alerts when issues occur"
+msgstr ""
+
+#: admin/views/screen-entry.php:35
+msgid "Track WordPress core, theme, and plugin updates"
+msgstr ""
+
+#: admin/views/screen-entry.php:36
+msgid "View comprehensive site health metrics"
+msgstr ""
+
+#: admin/views/screen-entry.php:42
+msgid "Setup Guide & Documentation"
+msgstr ""
+
+#: admin/views/screen-existing.php:17
+msgid "Connect Existing Account"
+msgstr ""
+
+#: admin/views/screen-existing.php:18
+msgid "Enter your register token from Watchman Tower to connect this site."
+msgstr ""
+
+#: admin/views/screen-existing.php:23
+msgid "Register Token"
+msgstr ""
+
+#: admin/views/screen-existing.php:28
+msgid "Paste your token here"
+msgstr ""
+
+#: admin/views/screen-existing.php:31
+msgid "You can find this token in your Watchman Tower dashboard."
+msgstr ""
+
+#: admin/views/screen-existing.php:37
+msgid "Connect"
+msgstr ""
+
+#: core/Heartbeat.php:25
+msgid "No token available for heartbeat."
+msgstr ""
+
+#: core/Heartbeat.php:57
+#: includes/ajax/SiteStatus.php:64
+#, php-format
+msgid "HTTP %d response"
+msgstr ""
+
+#: core/Heartbeat.php:67
+msgid "API returned ok: false"
+msgstr ""
+
+#: includes/ajax/Connection.php:32
+#: includes/ajax/HeartbeatAjax.php:32
+#: includes/ajax/SaveSettings.php:33
+#: includes/ajax/Signup.php:32
+#: includes/ajax/SiteStatus.php:32
+#: includes/ajax/Token.php:33
+#: includes/ajax/Unlink.php:32
+msgid "Insufficient permissions."
+msgstr ""
+
+#: includes/ajax/SaveSettings.php:36
+msgid "Settings saved successfully."
+msgstr ""
+
+#: includes/ajax/Signup.php:41
+msgid "Valid email is required."
+msgstr ""
+
+#: includes/ajax/Signup.php:75
+#: includes/ajax/SiteStatus.php:69
+msgid "Invalid response from server."
+msgstr ""
+
+#: includes/ajax/Signup.php:79
+msgid "Account creation failed."
+msgstr ""
+
+#: includes/ajax/Signup.php:90
+msgid "Account created successfully."
+msgstr ""
+
+#: includes/ajax/SiteStatus.php:40
+msgid "Site not connected."
+msgstr ""
+
+#: includes/ajax/Token.php:39
+msgid "Token is required."
+msgstr ""
+
+#: includes/ajax/Token.php:50
+msgid "Failed to connect to Watchman Tower."
+msgstr ""
+
+#: includes/ajax/Unlink.php:76
+msgid "Site unlinked successfully."
+msgstr ""
