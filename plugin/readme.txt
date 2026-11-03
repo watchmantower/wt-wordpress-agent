@@ -65,7 +65,7 @@ This plugin is lightweight, secure, cron-friendly, CDN-compatible, and optimized
 - Start with 10 monitored sites for free  
 - Upgrade seamlessly as your agency grows  
 - Share public status pages with clients  
-- Configure alerts via Email, Slack, Push, and SMS  
+- Alerts by email and push on every plan; Slack and SMS on Team and Stack plans  
 
 ---
 
@@ -139,7 +139,7 @@ Yes. Tokens are stored securely in your WordPress database and all communication
 2. WordPress Site Health – Detailed WordPress-specific metrics including PHP version, active theme, cron status, memory usage, and plugin list.
 3. Domain Expiration – Automatic tracking of domain expiry with remaining days and registrar details.
 4. Condition History – WordPress condition changes over time, such as a core update becoming available, XML-RPC exposure, or the agent going silent.
-5. Notification Settings – Configure alerts via email, Slack, Discord, Telegram, Webhook, or Zapier.
+5. Notification Settings – Turn email, push, Slack and SMS alerts on or off per channel.
 
 == Changelog ==
 
