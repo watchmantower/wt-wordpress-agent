@@ -1,0 +1,35 @@
+# Plugin tests (WT-214). WordPress is not loaded: WP functions are stubbed with
+# Brain Monkey, so this runs on plain PHP. The matrix covers the plugin's
+# minimum PHP (readme "Requires PHP: 7.4") and a current one.
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ["7.4", "8.3"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer:v2
+
+      - name: Install
+        run: composer install --no-interaction --no-progress
+
+      - name: Lint
+        run: composer lint
+
+      - name: Test
+        run: composer test
