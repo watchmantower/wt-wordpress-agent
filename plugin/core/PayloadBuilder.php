@@ -272,12 +272,10 @@ class PayloadBuilder
         if (empty($autoload_values)) {
             $autoload_values = ['yes'];
         }
-        $placeholders = implode(', ', array_fill(0, count($autoload_values), '%s'));
         // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- tek seferlik saglik olcumu, cache'lenecek bir sey yok.
         $result = $wpdb->get_var(
             $wpdb->prepare(
-                // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- yalnizca %s yer tutuculari ve tablo adi.
-                "SELECT SUM(LENGTH(option_value)) FROM {$wpdb->options} WHERE autoload IN ($placeholders)",
+                "SELECT SUM(LENGTH(option_value)) FROM {$wpdb->options} WHERE autoload IN (" . implode(', ', array_fill(0, count($autoload_values), '%s')) . ')',
                 $autoload_values
             )
         );

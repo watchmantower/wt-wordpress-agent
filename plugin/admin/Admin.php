@@ -86,6 +86,8 @@ class Admin
         );
 
         $opts = Options::get_all();
+        // Read-only screen switch (no state change), so no nonce is needed.
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         $mode = isset($_GET['mode']) ? sanitize_text_field(wp_unslash($_GET['mode'])) : '';
 
         $js_file = 'shared.js';
