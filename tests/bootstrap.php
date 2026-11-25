@@ -8,7 +8,7 @@
  */
 
 define('ABSPATH', __DIR__ . '/fake-wp/');
-define('WTHB_VERSION', '2.1.2-test');
+define('WTHB_VERSION', '2.1.3-test');
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 require __DIR__ . '/WpFakes.php';

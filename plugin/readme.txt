@@ -2,9 +2,9 @@
 Contributors: watchmantower
 Tags: wordpress monitoring, uptime monitoring, site health, performance monitoring, agency
 Requires at least: 5.8
-Tested up to: 7.1
+Tested up to: 7.2
 Requires PHP: 7.4
-Stable tag: 2.1.2
+Stable tag: 2.1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,13 @@ Yes. Tokens are stored securely in your WordPress database and all communication
 
 == Changelog ==
 
+= 2.1.3 =
+* Tested with WordPress 7.2 and PHP 8.6.
+* Fixed the autoloaded options size metric on WordPress 6.6+, which only counted the legacy "yes" autoload value.
+* Security: server-provided text (error messages, domain registrar, SSL issuer) is now escaped before it is shown on the settings screen.
+* Replaced deprecated jQuery event shorthand and the keypress event ahead of jQuery 4.
+* The plugin inventory no longer errors when the WordPress update helpers are unavailable.
+
 = 2.1.2 =
 * Security: removed authentication debug details from unauthorized heartbeat responses.
 * Security: removed the built-in fallback signing key; requests are now rejected outright when no site secret is configured.
@@ -189,6 +196,9 @@ Yes. Tokens are stored securely in your WordPress database and all communication
 * Scheduled metric sending
 
 == Upgrade Notice ==
+
+= 2.1.3 =
+WordPress 7.2 compatibility, a corrected memory health metric on WordPress 6.6+, and safer rendering of server messages.
 
 = 2.1.1 =
 Adds safeguards against connecting a register token to the wrong site domain and improves setup error messaging.

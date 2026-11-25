@@ -3,7 +3,7 @@
  * Plugin Name: Watchman Tower
  * Plugin URI: https://docs.watchmantower.com/wordpress-agent/installation
  * Description: Watchman Tower WordPress Agent plugin to connect your site to Watchman Tower service for monitoring and management.
- * Version: 2.1.2
+ * Version: 2.1.3
  * Author: Watchman Tower
  * Author URI: https://www.watchmantower.com
  * Requires PHP: 7.4
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('WTHB_VERSION', '2.1.2');
+define('WTHB_VERSION', '2.1.3');
 define('WTHB_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('WTHB_PLUGIN_URL', plugin_dir_url(__FILE__));
 

@@ -258,11 +258,28 @@ class PayloadBuilder
         $current_percent = $limit_bytes > 0 ? ($current_usage / $limit_bytes) * 100 : 0;
         $peak_percent = $limit_bytes > 0 ? ($peak_usage / $limit_bytes) * 100 : 0;
 
-        // Get autoloaded options size
+        // Autoload edilen option boyutu.
+        //
+        // WP 6.6'dan beri autoload sutunu yalnizca 'yes' tasimiyor: yeni
+        // kayitlar 'on' / 'auto-on' / 'auto' yaziyor. <=2.1.2 yalnizca 'yes'
+        // sayiyordu, bu yuzden 6.6+ sitelerde boyut gercegin cok altinda
+        // cikiyordu. Degerleri core'dan aliyoruz; eski core'da 'yes' kalir.
         global $wpdb;
         $autoload_size = 0;
+        $autoload_values = function_exists('wp_autoload_values_to_autoload')
+            ? (array) wp_autoload_values_to_autoload()
+            : ['yes'];
+        if (empty($autoload_values)) {
+            $autoload_values = ['yes'];
+        }
+        $placeholders = implode(', ', array_fill(0, count($autoload_values), '%s'));
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- tek seferlik saglik olcumu, cache'lenecek bir sey yok.
         $result = $wpdb->get_var(
-            "SELECT SUM(LENGTH(option_value)) FROM {$wpdb->options} WHERE autoload = 'yes'"
+            $wpdb->prepare(
+                // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- yalnizca %s yer tutuculari ve tablo adi.
+                "SELECT SUM(LENGTH(option_value)) FROM {$wpdb->options} WHERE autoload IN ($placeholders)",
+                $autoload_values
+            )
         );
         if ($result) {
             $autoload_size = (int) $result;
@@ -339,8 +356,10 @@ class PayloadBuilder
             $active_plugins = array_merge($active_plugins, $network_active);
         }
 
-        // Get update information
-        $plugin_updates = get_plugin_updates();
+        // get_plugin_updates() wp-admin/includes/update.php'de yasiyor; REST /
+        // cron baglaminda yuklu olmayabilir (update_counts() yuklemeyi dener
+        // ama dosya yoksa geri doner). Yoksa guncelleme bilgisi bos kalir.
+        $plugin_updates = function_exists('get_plugin_updates') ? get_plugin_updates() : [];
 
         $active_list = [];
 

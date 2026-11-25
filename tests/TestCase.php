@@ -85,9 +85,22 @@ abstract class TestCase extends Base
         $GLOBALS['wp_version'] = '6.8';
         $GLOBALS['wpdb'] = new class {
             public $options = 'wp_options';
+            public $last_sql = '';
+
+            public function prepare($query, ...$args)
+            {
+                if (isset($args[0]) && is_array($args[0])) {
+                    $args = $args[0];
+                }
+                $quoted = array_map(function ($a) {
+                    return "'" . addslashes((string) $a) . "'";
+                }, $args);
+                return vsprintf($query, $quoted);
+            }
 
             public function get_var($sql)
             {
+                $this->last_sql = $sql;
                 return strpos($sql, 'SELECT 1') === 0 ? '1' : '2048';
             }
         };
@@ -110,6 +123,9 @@ abstract class TestCase extends Base
         Functions\when('get_plugin_updates')->justReturn([]);
         Functions\when('get_theme_updates')->justReturn([]);
         Functions\when('get_plugins')->justReturn([]);
+        // Real core (6.6+) value; Brain Monkey can't undefine a function, so
+        // the pre-6.6 'yes' fallback is not covered here.
+        Functions\when('wp_autoload_values_to_autoload')->justReturn(['yes', 'on', 'auto-on', 'auto']);
         Functions\when('wp_strip_all_tags')->alias('strip_tags');
         Functions\when('wp_generate_uuid4')->justReturn('instance-uuid');
     }
