@@ -22,6 +22,7 @@ wp_clear_scheduled_hook('wthb_cron_heartbeat');
 
 // Remove transient / cache keys (prefix based)
 global $wpdb;
+// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- one-off cleanup on uninstall; no API deletes transients by prefix.
 $wpdb->query(
     "DELETE FROM {$wpdb->options} 
      WHERE option_name LIKE '_transient_wthb_%'

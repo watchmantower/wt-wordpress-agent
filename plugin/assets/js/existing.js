@@ -48,10 +48,12 @@
       );
     });
 
-    $tokenInput.on("keypress", function (e) {
-      if (e.which === 13) {
+    // keydown + trigger(): the keypress event and the .click() shorthand
+    // are both deprecated (jQuery Migrate 3.6 in WP 7.2 warns on shorthands).
+    $tokenInput.on("keydown", function (e) {
+      if (e.key === "Enter" || e.which === 13) {
         e.preventDefault();
-        $connectBtn.click();
+        $connectBtn.trigger("click");
       }
     });
   });

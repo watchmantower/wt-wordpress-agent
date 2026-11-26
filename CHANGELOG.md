@@ -2,6 +2,16 @@
 
 Full changelog is also maintained in `plugin/readme.txt` for WordPress.org.
 
+## 2.1.3
+### Security
+- Server-provided text (error messages, domain registrar, SSL issuer) is escaped before it reaches `.html()` on the settings screen.
+### Fixed
+- Autoloaded options size counted only `autoload = 'yes'`; WordPress 6.6+ also writes `on` / `auto-on` / `auto`. The query now uses `wp_autoload_values_to_autoload()`.
+- `get_plugin_updates()` is guarded, so the inventory no longer fatals when update helpers are unavailable.
+### Changed
+- `.click()` shorthand and `keypress` replaced with `.trigger("click")` and `keydown` (jQuery Migrate 3.6 in WP 7.2).
+- Tested up to WordPress 7.2; CI also runs on PHP 8.4.
+
 ## 2.1.2
 ### Security
 - Removed authentication debug details from unauthorized heartbeat responses.

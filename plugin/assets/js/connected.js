@@ -44,11 +44,12 @@
       var status = data.siteStatus || "unknown";
       var downRate = Math.round(parseFloat(data.downRate || 0) * 100);
       var upRate = Math.round(parseFloat(data.upRate || 0) * 100);
-      var domain = data.domain || "Not available";
-      var domainRegistrar = data.domainRegistrar || "Unknown";
+      var esc = WTHB.escapeHtml;
+      var domain = esc(data.domain || "Not available");
+      var domainRegistrar = esc(data.domainRegistrar || "Unknown");
       var remainingDays =
         typeof data.remainingDays === "number" ? data.remainingDays : null;
-      var issuer = data.issuer || "Unknown";
+      var issuer = esc(data.issuer || "Unknown");
       var daysLeft = typeof data.daysLeft === "number" ? data.daysLeft : null;
       var chainTrusted =
         typeof data.chainTrusted === "boolean" ? data.chainTrusted : null;
@@ -298,7 +299,7 @@
         "</div>" +
         "</div>";
 
-      WTHB.showMessage(confirmHtml, "warning");
+      WTHB.showMessageHtml(confirmHtml, "warning");
 
       $("#wthb-confirm-cancel").on("click", function () {
         WTHB.clearMessage();
@@ -316,15 +317,18 @@
 
             // Show success message
             var messageType = data.server ? "success" : "warning";
-            var displayMessage = data.message || "Site unlinked successfully.";
+            var displayMessage = WTHB.escapeHtml(
+              data.message || "Site unlinked successfully.",
+            );
 
             // If there's a warning, append it
             if (data.warning) {
               displayMessage +=
-                "<br><br><strong>Warning:</strong> " + data.warning;
+                "<br><br><strong>Warning:</strong> " +
+                WTHB.escapeHtml(data.warning);
             }
 
-            WTHB.showMessage(displayMessage, messageType);
+            WTHB.showMessageHtml(displayMessage, messageType);
 
             stopHeartbeatLoop();
 

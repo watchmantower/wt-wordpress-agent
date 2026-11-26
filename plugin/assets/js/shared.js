@@ -8,13 +8,36 @@
   window.WTHB = window.WTHB || {};
 
   /**
-   * Show a status message.
+   * Escape a value for safe insertion into HTML.
+   *
+   * Server responses (error messages, WHOIS registrar, certificate issuer)
+   * are data, not markup: they are always passed through here before they
+   * reach .html().
+   */
+  WTHB.escapeHtml = function (value) {
+    return String(value === null || value === undefined ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  };
+
+  /**
+   * Show a plain-text status message (escaped).
    */
   WTHB.showMessage = function (message, type) {
+    WTHB.showMessageHtml(WTHB.escapeHtml(message), type);
+  };
+
+  /**
+   * Show a status message whose markup is built by the plugin itself.
+   * Never pass server-provided text here without WTHB.escapeHtml().
+   */
+  WTHB.showMessageHtml = function (html, type) {
     type = type || "info";
     var classes = "notice notice-" + type + " inline";
-    var html = '<div class="' + classes + '"><p>' + message + "</p></div>";
-    $("#wthb-status").html(html);
+    $("#wthb-status").html('<div class="' + classes + '"><p>' + html + "</p></div>");
   };
 
   /**

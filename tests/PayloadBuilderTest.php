@@ -21,7 +21,7 @@ class PayloadBuilderTest extends TestCase
         $p = PayloadBuilder::build('cron');
 
         $this->assertSame('instance-uuid', $p['instanceId']);
-        $this->assertSame('2.1.2-test', $p['pluginVersion']);
+        $this->assertSame('2.1.3-test', $p['pluginVersion']);
         $this->assertSame(1762430400, $p['sentAt']);
         $this->assertSame(120, $p['interval']);
         $this->assertSame('https://example.test', $p['site']['homeUrl']);
@@ -30,6 +30,14 @@ class PayloadBuilderTest extends TestCase
         $this->assertTrue($p['registration']['enabled']);
         $this->assertTrue($p['security']['xmlrpc']['enabled']);
         $this->assertSame(2048, $p['health']['ram']['wordpress']['autoloadedOptionsSize']);
+    }
+
+    public function test_autoload_size_counts_all_core_autoload_values(): void
+    {
+        // WP 6.6+ writes 'on' / 'auto-on' / 'auto', not only 'yes'.
+        PayloadBuilder::build('cron');
+        $sql = $GLOBALS['wpdb']->last_sql;
+        $this->assertStringContainsString("autoload IN ('yes', 'on', 'auto-on', 'auto')", $sql);
     }
 
     public function test_manual_flag_is_only_true_for_manual_sends(): void
