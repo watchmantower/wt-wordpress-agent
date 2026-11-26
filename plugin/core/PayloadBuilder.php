@@ -74,6 +74,7 @@ class PayloadBuilder
         global $wpdb;
 
         try {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- connectivity probe; must hit the DB.
             $result = $wpdb->get_var("SELECT 1");
             return $result === '1';
         } catch (\Exception $e) {
@@ -331,6 +332,8 @@ class PayloadBuilder
      */
     private static function xmlrpc_enabled(): bool
     {
+        // Core filter, read on purpose to report XML-RPC state.
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
         return apply_filters('xmlrpc_enabled', true);
     }
 

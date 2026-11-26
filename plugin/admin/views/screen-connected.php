@@ -11,13 +11,13 @@ if (!defined('ABSPATH')) {
 
 use WTHB\models\Options;
 
-$instance_id = Options::get_instance_id();
-$last_success_formatted = '';
-$last_success_relative = '';
+$wthb_instance_id = Options::get_instance_id();
+$wthb_last_success_formatted = '';
+$wthb_last_success_relative = '';
 
 if (!empty($opts['last_success'])) {
-    $last_success_formatted = date_i18n('Y-m-d H:i:s', $opts['last_success']);
-    $last_success_relative = human_time_diff($opts['last_success'], current_time('timestamp')) . ' ' . __('ago', 'watchman-tower');
+    $wthb_last_success_formatted = date_i18n('Y-m-d H:i:s', $opts['last_success']);
+    $wthb_last_success_relative = human_time_diff($opts['last_success'], current_time('timestamp')) . ' ' . __('ago', 'watchman-tower');
 }
 ?>
 
@@ -38,7 +38,7 @@ if (!empty($opts['last_success'])) {
         <div class="wthb-info-grid">
             <div class="wthb-info-item">
                 <label><?php echo esc_html__('Instance ID', 'watchman-tower'); ?></label>
-                <code><?php echo esc_html($instance_id); ?></code>
+                <code><?php echo esc_html($wthb_instance_id); ?></code>
             </div>
 
             <?php if (!empty($opts['site_id'])): ?>
@@ -50,9 +50,9 @@ if (!empty($opts['last_success'])) {
 
             <div class="wthb-info-item">
                 <label><?php echo esc_html__('Last Successful Heartbeat', 'watchman-tower'); ?></label>
-                <?php if (!empty($last_success_formatted)): ?>
-                    <span><?php echo esc_html($last_success_formatted); ?></span>
-                    <small>(<?php echo esc_html($last_success_relative); ?>)</small>
+                <?php if (!empty($wthb_last_success_formatted)): ?>
+                    <span><?php echo esc_html($wthb_last_success_formatted); ?></span>
+                    <small>(<?php echo esc_html($wthb_last_success_relative); ?>)</small>
                 <?php else: ?>
                     <span><?php echo esc_html__('No heartbeat sent yet', 'watchman-tower'); ?></span>
                 <?php endif; ?>
