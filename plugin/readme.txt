@@ -144,7 +144,7 @@ Yes. Tokens are stored securely in your WordPress database and all communication
 == Changelog ==
 
 = 2.1.3 =
-* Tested with WordPress 7.2 and PHP 8.6.
+* Tested with WordPress 7.2.
 * Fixed the autoloaded options size metric on WordPress 6.6+, which only counted the legacy "yes" autoload value.
 * Security: server-provided text (error messages, domain registrar, SSL issuer) is now escaped before it is shown on the settings screen.
 * Replaced deprecated jQuery event shorthand and the keypress event ahead of jQuery 4.
